@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&display=swap');
+
+    /* ESTILO DO LOGIN */
+    body {
+        margin: 0;
+        font-family: 'Noto Sans', sans-serif;
+    }
+
+    body * {
+        box-sizing: border-box;
+    }
+
+    .main-login {
+        width: 100vw;
+        height: 100vh;
+        background: #c4c4c4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .left-login {
+        width: 50vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .left-login > h1 {
+        font-size: 3vw;
+        color: #ff6600;
+    }
+
+    .right-login {
+        width: 50vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card-login {
+        width: 60%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 30px 35px;
+        background: #2f2841;
+        border-radius: 20px;
+        box-shadow: 0px 10px 40px #ff660056;
+    }
+
+    .card-login > h1 {
+        color: #ff6600fa;
+        font-weight: 800;
+        margin: 0;
+    }
+
+    .textfield {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        margin: 10px 0px;
+    }
+
+    .textfield > input {
+        width: 100%;
+        border: none;
+        border-radius: 10px;
+        padding: 15px;
+        background: #514869;
+        color: #f0ffffde;
+        font-size: 12pt;
+        box-shadow: 0px 10px 40px #00000056;
+        outline: none;
+        box-sizing: border-box;
+    }
+
+    .textfield > label {
+        color: #f0ffffde;
+        margin-bottom: 10px;
+    }
+
+    .textfield > input::placeholder {
+        color: #f0ffff94;
+    }
+
+    .btn-login {
+        width: 100%;
+        padding: 16px 0px;
+        margin: 25px;
+        border: none;
+        border-radius: 8px;
+        outline: none;
+        text-transform: uppercase;
+        font-weight: 800;
+        letter-spacing: 3px;
+        color: #2b134b;
+        background: #ff6600fa;
+        cursor: pointer;
+        box-shadow: 0px 10px 40px -12px #00ff8052;
+    }
+
+    /* FIM ESTILO LOGIN */
+
+    /* Estilização do link "Esqueci a senha" */
+    .forgot-password {
+        color: #ff6600;
+        margin-top: 10px;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    .forgot-password:hover {
+        color: #e55e00;
+    }
+    /* FIM DA ESTILIZAÇÃO DO LINK "ESQUECI A SENHA" */
+
+  </style>
+  <title>Login</title>
+</head>
+<body>
+  <div class="main-login">
+    <div class="left-login">
+      <h1>Faça seu Login<br>Conheça os nossos Produtos</h1>
+    </div>
+    <div class="right-login">
+      <div class="card-login">
+        <h1>LOGIN</h1>
+        <form id="loginForm" action="ValidarLogin.php" method="post">
+          <div class="textfield">
+            <label for="usuario">Usuário</label>
+            <input type="text" name="usuario" placeholder="Usuário">
+          </div>
+          <div class="textfield">
+            <label for="senha">Senha</label>
+            <input type="password" name="senha" placeholder="Senha">
+          </div>
+          <button type="submit" class="btn-login">Acessar</button>
+        </form>
+        <a href="#" class="forgot-password">Esqueci a senha</a>
+        <!-- Formulário de redefinição de senha -->
+        <form id="resetPasswordForm" class="reset-password-form" style="display: none;">
+          <h2>Redefinir Senha</h2>
+          <div class="textfield">
+            <label for="email">Email ou Telefone</label>
+            <input type="text" name="email" id="resetEmail" placeholder="Email ou Telefone">
+          </div>
+          <button type="button" id="resetPasswordBtn" class="btn-login">Enviar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Função para enviar o formulário de redefinição de senha
+    document.getElementById("resetPasswordBtn").addEventListener("click", function() {
+      var email = document.getElementById("resetEmail").value;
+      // Simulação de envio de dados para o servidor (substitua este trecho com o código real para enviar os dados para o servidor)
+      console.log("Email ou Telefone:", email);
+      // Aqui você pode adicionar código para enviar os dados para o servidor (por exemplo, usando fetch ou XMLHttpRequest)
+    });
+
+    // Alternar entre o formulário de login e o formulário de redefinição de senha
+    document.querySelector(".forgot-password").addEventListener("click", function(event) {
+      event.preventDefault();
+      document.getElementById("loginForm").style.display = "none";
+      document.getElementById("resetPasswordForm").style.display = "block";
+    });
+  </script>
+</body>
+</html>
